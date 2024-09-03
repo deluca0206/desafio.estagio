@@ -1,0 +1,10 @@
+[
+    {"dia": 1, "faturamento": 1000.0},
+    {"dia": 2, "faturamento": 1500.0},
+    {"dia": 3, "faturamento": 2500.0},    
+    {"dia": 4, "faturamento": 0.0},   // Fim de semana, sem faturamento
+    {"dia": 5, "faturamento": 0.0},   // Fim de semana, sem faturamento
+    {"dia": 6, "faturamento": 1800.0},
+    {"dia": 7, "faturamento": 0.0},   // Feriado
+    {"dia": 8, "faturamento": 2200.0}
+]
