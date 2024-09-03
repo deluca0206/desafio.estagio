@@ -18,7 +18,7 @@ def calcular_faturamento(dados_faturamento):
         "maior_faturamento": maior_faturamento,
         "dias_acima_da_media": dias_acima_da_media
     }
-
+#não consegui fazer funcionar, perdão!
 def ler_faturamento_arquivo(caminho_arquivo):
     with open(caminho_arquivo, "r") as arquivo:
         dados_faturamento = json.load(arquivo)
