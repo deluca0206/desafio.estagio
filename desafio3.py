@@ -6,7 +6,7 @@ def calcular_faturamento(dados_faturamento):
     
     # Se não houver faturamentos válidos, retorna mensagem
     if not faturamento_validos:
-        return {"menor_faturamento": None, "maior_faturamento": None, "dias_acima_da_media": None}
+        return "Não há dados de faturamento válidos para calcular."
     
     # Calcular menor e maior valor de faturamento
     menor_faturamento = min(faturamento_validos)
@@ -26,25 +26,16 @@ def calcular_faturamento(dados_faturamento):
 
 # Função para ler o JSON de faturamento
 def ler_faturamento_arquivo(caminho_arquivo):
-    try:
-        with open(caminho_arquivo, "r") as arquivo:
-            dados_faturamento = json.load(arquivo)
-        return dados_faturamento
-    except FileNotFoundError:
-        print(f"Erro: O arquivo '{caminho_arquivo}' não foi encontrado.")
-    except json.JSONDecodeError:
-        print("Erro: O arquivo não está em um formato JSON válido.")
-    except Exception as e:
-        print(f"Ocorreu um erro inesperado: {e}")
+    with open(caminho_arquivo, "r") as arquivo:
+        dados_faturamento = json.load(arquivo)
+    return dados_faturamento
 
 # Exemplo de uso
 caminho_arquivo = "faturamento.json"
 dados_faturamento = ler_faturamento_arquivo(caminho_arquivo)
+resultado = calcular_faturamento(dados_faturamento)
 
-if dados_faturamento:
-    resultado = calcular_faturamento(dados_faturamento)
-
-    # Exibir os resultados
-    print(f"Menor faturamento: {resultado['menor_faturamento']}")
-    print(f"Maior faturamento: {resultado['maior_faturamento']}")
-    print(f"Dias com faturamento acima da média: {resultado['dias_acima_da_media']}")
+# Exibir os resultados
+print(f"Menor faturamento: {resultado['menor_faturamento']}")
+print(f"Maior faturamento: {resultado['maior_faturamento']}")
+print(f"Dias com faturamento acima da média: {resultado['dias_acima_da_media']}")
